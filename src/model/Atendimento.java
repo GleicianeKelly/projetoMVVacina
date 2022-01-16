@@ -1,6 +1,6 @@
 package model;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Atendimento {
 
@@ -58,6 +58,26 @@ public class Atendimento {
 	}
 	public void setDt_atendimento(Date dt_atendimento) {
 		this.dt_atendimento = dt_atendimento;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "\nAtendimento " +
+				"\nId atendimento: " + this.getId_atendime()
+			   +"\nDados paciente: " 
+			   +"\nId paciente: " + this.getPaciente().getId_paciente() 
+			   +"\nCpf: " +  this.getPaciente().getCpf() 
+			   +"\nNome: " + this.getPaciente().getNome_paciente() 
+			   +"\nEndereço: " + this.getPaciente().getEndereco()
+			   +"\nDados vacina: " 
+			   +"\nId vacina: " + this.getVacina().getId_vacina() 
+			   +"\nNome vacina: " + this.getVacina().getNome_vacina()
+			   +"\nMarca: " + this.getVacina().getMarca()
+			   +"\nData de atendimento: " + this.getDt_atendimento();
+			   
+		
 	}
 	
 	

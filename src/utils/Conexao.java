@@ -18,11 +18,11 @@ public class Conexao {
 	private final static String usuario = "uldpnmraulscaa";
 	private final static String senha = "3ccce9ce53bbc9a86bbd3ab2465b8686538b3f387fb45de1f7a17111878a06d3";
 		
-		private static Connection conn = null;
+		private static Connection conn;
 
 	
 		public static Connection db() {
-			
+			conn = null;
 			if (conn == null) {
 			
 				try {

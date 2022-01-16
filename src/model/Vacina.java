@@ -9,6 +9,14 @@ public class Vacina {
 	
 	
 	
+	public Vacina() {
+		
+	}
+	
+	public Vacina(int id) {
+		this.id_vacina = id;
+	}
+	
 	public Integer getId_vacina() {
 		return id_vacina;
 	}

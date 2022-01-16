@@ -18,6 +18,9 @@ public class Paciente {
 		super();
 	}
 	
+	public Paciente(Integer id) {
+		this.id_paciente = id;
+	}
 	
 	
 	public Paciente(Integer id_paciente, String cpf, String nome_paciente, String endereco) {
