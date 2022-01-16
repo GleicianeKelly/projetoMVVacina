@@ -95,7 +95,7 @@ public class AtendimentoDao implements AtendimentoRepository{
 			this.stmt.setInt(4, object.getId_atendime());
 			int value = this.stmt.executeUpdate();
 			if(value == 0) {
-				throw new SQLException("erro ao salvar paciente");
+				throw new SQLException("erro ao atualizar atendimento");
 			}
 			System.out.println("Atualizado com sucesso! ");
 
@@ -112,17 +112,58 @@ public class AtendimentoDao implements AtendimentoRepository{
 
 	@Override
 	public void save(Atendimento object) {
+		String url = "insert into atendimento (id_paciente, id_vacina, dt_atendime)"
+				+ "values(?,?,?)";
+		try{
+			this.stmt = this.conn.prepareStatement(url);
+			this.stmt.setInt(1, object.getPaciente().getId_paciente());
+			this.stmt.setInt(2, object.getVacina().getId_vacina());
+			this.stmt.setDate(3, new java.sql.Date(object.getDt_atendimento().getTime()));
+			int value = this.stmt.executeUpdate();
+			if(value == 0) {
+				throw new SQLException("erro ao inserir atendimento");
+			}
+			System.out.println("Inserido com sucesso! ");
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			throw new DbException(e.getMessage());
+		} finally {
+			this.close(this.conn, this.stmt);
+		}
+			}
 		
 		
 		
 		
-	}
+	
 
 	@Override
 	public boolean delete(Integer id) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+		String url = "delete from atendimento where id_atendime = ?";
+		try {
+			this.stmt = this.conn.prepareStatement(url);
+			this.stmt.setInt(1, id);
+			boolean ok = this.stmt.executeUpdate() > 0;
+			if(!ok) {
+				throw new SQLException("erro ao deletar atendimento");				
+			}
+			
+			System.out.println("Atualizado com sucesso! ");
+			return ok;
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			throw new DbException(e.getMessage());
+		} finally {
+			this.close(this.conn, this.stmt);
+		}
+	
+			}
+			
+		
+		
+	
 
 	@Override
 	public Optional<Atendimento> findByDate(Date date) {
@@ -170,12 +211,14 @@ public class AtendimentoDao implements AtendimentoRepository{
 		//System.out.println(atendimento.findById(1));
 		System.out.println(atendimento.findByDate(dataFormatada));*/
 		
-		atendimento.setId_atendime(1);
-		atendimento.setPaciente(new Paciente(2));
+		//atendimento.setId_atendime(1);
+		atendimento.setPaciente(new Paciente(1));
 		atendimento.setVacina(new Vacina(2));
 		atendimento.setDt_atendimento(new java.util.Date());
 		
-		atendimentoDao.update(atendimento);
+		//atendimentoDao.update(atendimento);
+		
+		atendimentoDao.save(atendimento);
 		
 	}
 
