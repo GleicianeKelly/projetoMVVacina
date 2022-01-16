@@ -1,0 +1,17 @@
+
+
+legend{
+    font-weight: bold;
+    text-align: center;
+    font-size: 40px;
+}
+
+body{
+    background: url(../img/vacina.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+}

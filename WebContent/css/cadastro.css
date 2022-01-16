@@ -1,0 +1,37 @@
+*{
+
+    margin: 0; /*Para limpar os elementos */
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: url(../img/vacina.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+}
+.cadastro{
+    display: flex;
+    justify-content: space-between;
+}
+button{
+align-items: center;
+    width: 284px;
+   font-size: 0.9rem;
+}
+.botao button{
+    padding: 15px 50px;
+    margin: 20px;
+    background: rgb(89, 155, 209);
+    border: 2px solid #fff;
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: ease-in-out .25s;
+
+}
