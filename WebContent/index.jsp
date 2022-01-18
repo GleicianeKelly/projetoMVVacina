@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
     
     
-    
+  
     
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -22,13 +22,13 @@
 
     <div class="container"> 
         <h2>Login</h2>
-        <form action="index.html" method="post">
+        <form action="Login" method="post">
             <div class="input-field">
-                <input type="text" id="nome" placeholder="Digite seu nome">
+                <input type="text" id="nome" name="nome" placeholder="Digite seu nome">
                 <label for="nome">Nome</label>
             </div>
             <div class="input-field">
-                <input type="password" id="senha" placeholder="Digite sua senha">
+                <input type="password" id="senha" name="senha" placeholder="Digite sua senha">
                 <label for="senha">Senha</label>
             </div> 
             <div class="center">

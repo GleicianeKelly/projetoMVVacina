@@ -15,7 +15,7 @@ public class AtendimentoService {
 	private AtendimentoRepository atendimento;
 	
 
-	public AtendimentoService() {
+	public AtendimentoService() throws ClassNotFoundException {
 		super();
 		this.atendimento = new AtendimentoDao();
 	}
@@ -28,7 +28,7 @@ public class AtendimentoService {
 		atendimento.update(object);
 	}
 	
-	public List<Atendimento> findAll(){
+	public List<Atendimento> findAll() throws ClassNotFoundException{
 		List<Atendimento> listaAtendimento = atendimento.findAll();
 		if(listaAtendimento.isEmpty()) {
 			throw new DbException("Lista vazia! ");
@@ -36,7 +36,7 @@ public class AtendimentoService {
 		return listaAtendimento;
 	}
 	
-	public Atendimento findById(Integer id) {
+	public Atendimento findById(Integer id) throws ClassNotFoundException {
 		Optional<Atendimento> atendimentoEncontrado = atendimento.findById(id);
 		if(!atendimentoEncontrado.isPresent()) {
 			throw new DbException("Atendimento não encontrado! ");
@@ -45,7 +45,7 @@ public class AtendimentoService {
 		return atendimentoEncontrado.get();
 	}
 	
-	public Atendimento findByDate(Date date) {
+	public Atendimento findByDate(Date date) throws ClassNotFoundException {
 		Optional<Atendimento> dataEncontrada = atendimento.findByDate(date);
 		if(!dataEncontrada.isPresent()) {
 			throw new DbException("Data não encontrada! ");
@@ -55,7 +55,7 @@ public class AtendimentoService {
 	}
 	
 	
-	public static void main(String[]args) {
+	public static void main(String[]args) throws ClassNotFoundException {
 		AtendimentoService atendimentoService = new AtendimentoService();
 		
 		System.out.println(atendimentoService.findById(4));

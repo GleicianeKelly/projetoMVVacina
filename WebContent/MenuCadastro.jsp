@@ -16,7 +16,7 @@
 <body>
     <div class="controle">
         <div class="botao">
-            <button>Cadastrar paciente</button>
+            <a href= "CadastroPaciente.jsp"><button>Cadastrar paciente</button></a>
         </div> 
         <div class="botao">
             <button>Cadastrar vacina</button>

@@ -10,7 +10,7 @@ public interface AtendimentoRepository extends CrudDao<Atendimento, Integer>{
 
 	
 	
-	Optional<Atendimento>findByDate(Date date);
+	Optional<Atendimento>findByDate(Date date) throws ClassNotFoundException;
 	
 	
 	

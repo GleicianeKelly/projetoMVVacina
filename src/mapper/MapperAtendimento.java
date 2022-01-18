@@ -13,15 +13,15 @@ public class MapperAtendimento {
 	
 	
 	
-	public static Atendimento createAtendimento(ResultSet rs) {
+	public static Atendimento createAtendimento(ResultSet rs) throws ClassNotFoundException {
 		Atendimento atendime = new Atendimento();
-		PacienteDao beenPaciente = new PacienteDao();
-		VacinaDao beenVacina = new VacinaDao();
+		PacienteDao beanPaciente = new PacienteDao();
+		VacinaDao beanVacina = new VacinaDao();
 		
 		try {
 			atendime.setId_atendime(rs.getInt("id_atendime"));
-			atendime.setPaciente(beenPaciente.findById(rs.getInt("id_paciente")).get());
-			atendime.setVacina(beenVacina.findById(rs.getInt("id_vacina")).get());
+			atendime.setPaciente(beanPaciente.findById(rs.getInt("id_paciente")).get());
+			atendime.setVacina(beanVacina.findById(rs.getInt("id_vacina")).get());
 			atendime.setDt_atendimento(rs.getDate("dt_atendime"));
 			return atendime;
 		} catch (SQLException e) {

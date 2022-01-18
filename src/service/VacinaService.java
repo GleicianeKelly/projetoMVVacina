@@ -13,7 +13,7 @@ public class VacinaService{
 	
 	private VacinaRepository vacina;
 
-	public VacinaService() {
+	public VacinaService() throws ClassNotFoundException {
 		super();
 		this.vacina = new VacinaDao();
 	}
@@ -36,7 +36,7 @@ public class VacinaService{
 		
 	}
 	
-	public List<Vacina> list(){
+	public List<Vacina> list() throws ClassNotFoundException{
 		List<Vacina> v = vacina.findAll();
 		if(v.isEmpty()) {
 			throw new DbException("Vacina não encontrado");	
@@ -44,7 +44,7 @@ public class VacinaService{
 		return v;
 	}
 	
-	public Vacina findById(int id) {
+	public Vacina findById(int id) throws ClassNotFoundException {
 		Optional<Vacina> vacinaEncontrada = vacina.findById(id);
 		if(!vacinaEncontrada.isPresent()) {
 			throw new DbException("Vacina não encontrada");	

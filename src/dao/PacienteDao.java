@@ -22,7 +22,7 @@ public class PacienteDao implements PacienteRepository {
 	private PreparedStatement stmt = null;
 	private ResultSet rs = null;;
 
-	public PacienteDao() {
+	public PacienteDao() throws ClassNotFoundException {
 		this.conn = Conexao.db();
 	}
 
@@ -173,7 +173,7 @@ public class PacienteDao implements PacienteRepository {
 		}
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ClassNotFoundException {
 		PacienteDao pacienteDao = new PacienteDao();
 
 		/*

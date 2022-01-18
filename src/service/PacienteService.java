@@ -14,20 +14,20 @@ public class PacienteService {
 	
 	private PacienteRepository paciente;
 
-	public PacienteService() {
+	public PacienteService() throws ClassNotFoundException {
 		super();
 		this.paciente = new PacienteDao();
 	}
 	
 	public void save(Paciente object) {
-		paciente.save(object);
+		this.paciente.save(object);
 	}
 	
 	public void update(Paciente object) {
-		paciente.update(object);
+		this.paciente.update(object);
 	}
 	
-	public List<Paciente> list(){
+	public List<Paciente> list() throws ClassNotFoundException{
 		List<Paciente> p = paciente.findAll();
 		if(p.isEmpty()) {
 			throw new DbException("Lista vazia!");	
@@ -35,7 +35,7 @@ public class PacienteService {
 		return p;
 	}
 	
-	public Paciente findById(int id) {
+	public Paciente findById(int id) throws ClassNotFoundException {
 		Optional<Paciente> pacienteEncontrado = paciente.findById(id);
 		if(!pacienteEncontrado.isPresent()) {
 			throw new DbException("Paciente não encontrado");	
@@ -58,5 +58,20 @@ public class PacienteService {
 		}
 		return ok;
 	}
+	
+	
+	public static void main (String[]args) {
+		Paciente paciente = new Paciente();
+		
+		paciente.setCpf("55939260420");
+		paciente.setNome_paciente("Marcos");
+		paciente.setEndereco("Rua Lauro de Freitas");
+		
+		//PacienteService pacienteService = new PacienteService();
+		
+		//pacienteService.save(paciente);
+		
+	}
+	
 	
 }

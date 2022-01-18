@@ -22,7 +22,7 @@ public class VacinaDao implements VacinaRepository{
 	
 
 
-	public VacinaDao() {
+	public VacinaDao() throws ClassNotFoundException {
 		this.conn = Conexao.db();
 	}
 	
@@ -180,7 +180,7 @@ public class VacinaDao implements VacinaRepository{
 		}
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ClassNotFoundException {
 		VacinaDao vacinaDao = new VacinaDao();
 		
 		/*List<Vacina> listaVacina = vacina.findAll();

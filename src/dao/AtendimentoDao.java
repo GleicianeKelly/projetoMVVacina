@@ -29,14 +29,14 @@ public class AtendimentoDao implements AtendimentoRepository{
 	
 
 	
-	public AtendimentoDao() {
+	public AtendimentoDao() throws ClassNotFoundException {
 		this.conn = Conexao.db();
 	}
 	
 	
 	
 	@Override
-	public List<Atendimento> findAll() {
+	public List<Atendimento> findAll() throws ClassNotFoundException {
 		List<Atendimento> atendimentoList = new ArrayList<>();
 		String url = "select * from atendimento";
 		try {
@@ -62,7 +62,7 @@ public class AtendimentoDao implements AtendimentoRepository{
 	}
 
 	@Override
-	public Optional<Atendimento> findById(Integer id) {
+	public Optional<Atendimento> findById(Integer id) throws ClassNotFoundException {
 		Optional<Atendimento> atendimentoEncontrado = null;
 		String url = "select * from atendimento where id_atendime = ?";
 		try {
@@ -166,7 +166,7 @@ public class AtendimentoDao implements AtendimentoRepository{
 	
 
 	@Override
-	public Optional<Atendimento> findByDate(Date date) {
+	public Optional<Atendimento> findByDate(Date date) throws ClassNotFoundException {
 		Optional<Atendimento> dataEncontrada = null;
 		String url = "select * from atendimento where dt_atendime = ?";
 		try {
@@ -198,7 +198,7 @@ public class AtendimentoDao implements AtendimentoRepository{
 		}
 	}
 	
-	public static void main(String[] args) throws ParseException {
+	public static void main(String[] args) throws ParseException, ClassNotFoundException {
 		AtendimentoDao atendimentoDao = new AtendimentoDao();
 		Atendimento atendimento = new Atendimento();
 		SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");

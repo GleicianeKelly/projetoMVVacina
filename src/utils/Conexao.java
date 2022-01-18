@@ -21,12 +21,12 @@ public class Conexao {
 		private static Connection conn;
 
 	
-		public static Connection db() {
+		public static Connection db() throws ClassNotFoundException {
 			conn = null;
 			if (conn == null) {
 			
 				try {
-					
+					Class.forName("org.postgresql.Driver");
 					conn = DriverManager.getConnection(url + banco, usuario, senha);
 				} catch (SQLException e) {
 					throw new DbException(e.getMessage());
@@ -61,7 +61,7 @@ public class Conexao {
 		}
 	
 		
-		public static void main(String...args) {
+		public static void main(String...args) throws ClassNotFoundException {
 			System.out.println(Conexao.db());
 		}
 	

@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,20 +9,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Paciente;
-import service.PacienteService;
+import model.Login;
 
 /**
- * Servlet implementation class CadastroServlet
+ * Servlet implementation class Login
  */
-@WebServlet("/CadastroServlet")
-public class CadastroServlet extends HttpServlet {
+@WebServlet("/Login")
+public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CadastroServlet() {
+    public LoginServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,22 +41,22 @@ public class CadastroServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		
-		Paciente paciente = new Paciente();
-		//PacienteService pacienteBean = new PacienteService();
-		PacienteService pacienteBean = null;
-		try {
-			pacienteBean = new PacienteService();
-			paciente.setCpf(request.getParameter("cpfPaciente"));
-			paciente.setNome_paciente(request.getParameter("nomePaciente"));
-			paciente.setEndereco(request.getParameter("endereco"));
-			pacienteBean.save(paciente);
-			response.sendRedirect("lista.jsp");
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		Login login = new Login();
+		
+		
+		
+		String nome = request.getParameter("nome");
+		String senha = request.getParameter("senha");
+		PrintWriter out = response.getWriter();
+		String mensagem;
+		
+		if(login.logar(nome, senha)) {
+			response.sendRedirect("MenuCadastro.jsp");
+		}
+		else {
+			response.sendRedirect("index.jsp");
 		}
 		
 		
 	}
-
 }

@@ -20,18 +20,20 @@
 	<form method="POST">
 		<div id="cadastro">
 			<fieldset>
-				<legend>Músicas Cadastradas</legend>
+				<legend>Pacientes Cadastrados</legend>
 				<table border="1">
 					<tr>
 						<td>Cod. Atendimento</td>
 						<td>Cod. Paciente</td>
 						<td>Cod. Vacina</td>
 						<td>Data de atendimento</td>
+						<td>Alterar</td>
 					</tr>
 					<c:forEach var="musica" items="${musicaBean.listarTodos()}">
 						<tr>
 							<td><c:out value="${musica.codigo}" /></td>
 							<td><c:out value="${musica.nome_musica}" /></td>
+							<td><c:out value="${musica.cantor}" /></td>
 							<td><c:out value="${musica.cantor}" /></td>
 							<td><a href="MusicaList.jsp?idExcluir=${musica.codigo}">Excluir</a>
 								<a
