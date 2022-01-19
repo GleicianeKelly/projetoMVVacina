@@ -2,8 +2,19 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:useBean id="vacinaService"
-	class="service.PacienteService" scope="session" />
+	class="service.VacinaService" scope="session" />
 	
+
+
+<script type="text/javascript">
+	function nova() {
+		location.href = "CadastroVacina.jsp";
+	}
+	function voltar() {
+		location.href = "VacinaMenu.jsp";
+	}
+</script>
+
 	
 
     
@@ -30,14 +41,13 @@
 						<td>Marca Vacina</td>
 						<td>Alterar</td>
 					</tr>
-					<c:forEach var="vacina" items="${vacinaService.findAll()}">
+					<c:forEach var="vacina" items="${vacinaService.list()}">
 						<tr>
-							<td><c:out value="${vacina.getId_vacina()}" /></td>
-							<td><c:out value="${vacina.getNome_vacina()}" /></td>
-							<td><c:out value="${vacina.getMarca()}" /></td>
-							<td><a href="ExcluirVacina?id=${vacina.getId_vacina}">Excluir</a>
+							<td><c:out value="${vacina.id_vacina}" /></td>
+							<td><c:out value="${vacina.nome_vacina}" /></td>
+							<td><c:out value="${vacina.marca}" /></td>
 								
-								<!--<a href="MusicaEdit.jsp?codigo=${musica.codigo}&&nome_musica=${musica.nome_musica}&&cantor=${musica.cantor}">Editar</a>  -->
+							<td><a href="EditarVacina.jsp?codigo=${vacina.id_vacina}&&nome_musica=${vacina.nome_musica}&&cantor=${musica.cantor}">Editar</a></td>
 							</td>
 						</tr>
 					</c:forEach>

@@ -1,5 +1,6 @@
 package service;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,7 +15,7 @@ public class PacienteService {
 	
 	private PacienteRepository paciente;
 
-	public PacienteService() throws ClassNotFoundException {
+	public PacienteService() throws ClassNotFoundException, SQLException {
 		super();
 		this.paciente = new PacienteDao();
 	}
@@ -60,7 +61,7 @@ public class PacienteService {
 	}
 	
 	
-	public static void main (String[]args) throws ClassNotFoundException {
+	public static void main (String[]args) throws ClassNotFoundException, SQLException {
 		Paciente paciente = new Paciente();
 		PacienteService pacienteService = new PacienteService();
 		

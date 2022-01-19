@@ -29,7 +29,7 @@ public class AtendimentoDao implements AtendimentoRepository{
 	
 
 	
-	public AtendimentoDao() throws ClassNotFoundException {
+	public AtendimentoDao() throws ClassNotFoundException, SQLException {
 		this.conn = Conexao.db();
 	}
 	
@@ -55,9 +55,9 @@ public class AtendimentoDao implements AtendimentoRepository{
 			catch (SQLException e) {
 			// TODO Auto-generated catch block
 			throw new DbException(e.getMessage());
-		} finally {
-			this.close(this.conn,this.stmt);
-		}
+		} //finally {
+			//this.close(this.conn,this.stmt);
+		//}
 		
 	}
 
@@ -199,7 +199,7 @@ public class AtendimentoDao implements AtendimentoRepository{
 		}
 	}
 	
-	public static void main(String[] args) throws ParseException, ClassNotFoundException {
+	public static void main(String[] args) throws ParseException, ClassNotFoundException, SQLException {
 		AtendimentoDao atendimentoDao = new AtendimentoDao();
 		Atendimento atendimento = new Atendimento();
 		SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");

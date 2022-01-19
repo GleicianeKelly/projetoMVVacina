@@ -13,7 +13,7 @@ public class MapperAtendimento {
 	
 	
 	
-	public static Atendimento createAtendimento(ResultSet rs) throws ClassNotFoundException {
+	public static Atendimento createAtendimento(ResultSet rs) throws ClassNotFoundException, SQLException {
 		Atendimento atendime = new Atendimento();
 		PacienteDao beanPaciente = new PacienteDao();
 		VacinaDao beanVacina = new VacinaDao();

@@ -1,5 +1,9 @@
 package controller;
 
+
+import model.Paciente;
+import service.PacienteService;
+
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -9,20 +13,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Paciente;
-import service.PacienteService;
-
 /**
- * Servlet implementation class CadastroServlet
+ * Servlet implementation class EditarPaciente
  */
-@WebServlet("/CadastroServlet")
-public class CadastroPacienteServlet extends HttpServlet {
+@WebServlet("/EditarPaciente")
+public class EditarPacienteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CadastroPacienteServlet() {
+    public EditarPacienteServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -47,10 +48,13 @@ public class CadastroPacienteServlet extends HttpServlet {
 		PacienteService pacienteBean = null;
 		try {
 			pacienteBean = new PacienteService();
-			paciente.setCpf(request.getParameter("cpfPaciente"));
-			paciente.setNome_paciente(request.getParameter("nomePaciente"));
+			
+			
+			paciente.setId_paciente(Integer.parseInt(request.getParameter("id_codigo")));
+			paciente.setCpf(request.getParameter("cpf"));
+			paciente.setNome_paciente(request.getParameter("nome_paciente"));
 			paciente.setEndereco(request.getParameter("endereco"));
-			pacienteBean.save(paciente);
+			pacienteBean.update(paciente);
 			response.sendRedirect("listarPaciente.jsp");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -59,8 +63,6 @@ public class CadastroPacienteServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
 	}
 
 }

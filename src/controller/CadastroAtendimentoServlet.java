@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -58,6 +59,9 @@ public class CadastroAtendimentoServlet extends HttpServlet {
 			atendimentoBean.save(atendimentoRequest);
 			response.sendRedirect("listarAtendimento.jsp");
 		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 

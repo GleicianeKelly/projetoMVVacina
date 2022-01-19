@@ -1,5 +1,6 @@
 package service;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,7 +14,7 @@ public class VacinaService{
 	
 	private VacinaRepository vacina;
 
-	public VacinaService() throws ClassNotFoundException {
+	public VacinaService() throws ClassNotFoundException, SQLException {
 		super();
 		this.vacina = new VacinaDao();
 	}

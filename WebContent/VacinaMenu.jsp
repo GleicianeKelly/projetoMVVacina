@@ -15,9 +15,7 @@
         <div class="botao">
             <a href= "CadastroVacina.jsp"><button>Cadastrar Vacina</button></a>
         </div> 
-        <div class="botao">
-            <button>Editar Vacina</button>
-        </div> 
+        
         <div class="botao">
             <a href=listarVacina.jsp><button>Listar Vacinas</button></a>
         </div> 

@@ -15,11 +15,9 @@
         <div class="botao">
             <a href= "CadastroPaciente.jsp"><button>Cadastrar Paciente</button></a>
         </div> 
+        
         <div class="botao">
-            <button>Editar Paciente</button>
-        </div> 
-        <div class="botao">
-            <a href="listarPaciente"><button>Listar Paciente</button></a>
+            <a href="listarPaciente.jsp"><button>Listar Paciente</button></a>
         </div> 
         
         

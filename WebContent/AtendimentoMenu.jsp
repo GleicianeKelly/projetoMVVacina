@@ -15,9 +15,7 @@
         <div class="botao">
             <a href= "Atendimento.jsp"><button>Cadastrar Atendimento</button></a>
         </div> 
-        <div class="botao">
-            <a href="EditarAtendimento.jsp"><button>Editar Atendimento</button></a>
-        </div> 
+        
         <div class="botao">
             <a href = "listarAtendimento.jsp"><button>Listar Atendimento</button></a>
         </div> 

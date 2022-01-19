@@ -21,9 +21,9 @@ public class Conexao {
 		private static Connection conn;
 
 	
-		public static Connection db() throws ClassNotFoundException {
+		public static Connection db() throws ClassNotFoundException, SQLException {
 			conn = null;
-			if (conn == null) {
+			if (conn == null || conn.isClosed()) {
 			
 				try {
 					Class.forName("org.postgresql.Driver");
@@ -40,9 +40,11 @@ public class Conexao {
 		public static void closeConection(Connection c) {
 	       
 			try {
-				  
-				 c.close();
-				 conn=null;
+				 if(c == null) {
+						c.close();
+						conn = null;
+				 }
+				
 			} catch (SQLException e) {
 				throw new DbException(e.getMessage());
 			}
@@ -53,7 +55,12 @@ public class Conexao {
 		
 		public static void closePreparedStatement(PreparedStatement stmt) {
 			try {
-				stmt.close();
+				 if(stmt == null) {
+						stmt.close();
+						conn = null;
+				 }
+				
+				
 			} catch (SQLException e) {
 
 				throw new DbException(e.getMessage());
@@ -61,7 +68,7 @@ public class Conexao {
 		}
 	
 		
-		public static void main(String...args) throws ClassNotFoundException {
+		public static void main(String...args) throws ClassNotFoundException, SQLException {
 			System.out.println(Conexao.db());
 		}
 	

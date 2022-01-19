@@ -1,5 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<jsp:useBean id="pacienteService"
+	class="service.PacienteService" scope="session" />
+	
+
+
+<script type="text/javascript">
+	function nova() {
+		location.href = "CadastroPaciente.jsp";
+	}
+	function voltar() {
+		location.href = "PacienteMenu.jsp";
+	}
+</script>
+
+	
+
+    
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -19,21 +38,20 @@
 				<table border="1">
 					<tr>
 						<td>Cod. Paciente</td>
-						<td>CPF Paciente</td>
+						<td>CPF</td>
 						<td>Nome Paciente</td>
 						<td>Endereço</td>
 						<td>Alterar</td>
 					</tr>
-					<c:forEach var="musica" items="${musicaBean.listarTodos()}">
+					<c:forEach var="paciente" items="${pacienteService.list()}">
 						<tr>
-							<td><c:out value="${musica.codigo}" /></td>
-							<td><c:out value="${musica.nome_musica}" /></td>
-							<td><c:out value="${musica.cantor}" /></td>
-							<td><c:out value="${musica.cantor}" /></td>
-							<td><a href="MusicaList.jsp?idExcluir=${musica.codigo}">Excluir</a>
-								<a
-								href="MusicaEdit.jsp?codigo=${musica.codigo}&&nome_musica=${musica.nome_musica}&&cantor=${musica.cantor}">Editar</a>
-							</td>
+							<td><c:out value="${paciente.id_paciente}" /></td>
+							<td><c:out value="${paciente.cpf}" /></td>
+							<td><c:out value="${paciente.nome_paciente}" /></td>
+							<td><c:out value="${paciente.endereco}" /></td>
+								
+							<td><a href="EditarPaciente.jsp?codigo=${paciente.id_paciente}&&cpf=${paciente.cpf}&&nome_paciente=${paciente.nome_paciente}&&endereco=${paciente.endereco}">Editar</a></td>
+							
 						</tr>
 					</c:forEach>
 

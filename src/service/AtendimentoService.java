@@ -1,5 +1,6 @@
 package service;
 
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -23,7 +24,7 @@ public class AtendimentoService {
 	private PacienteRepository paciente;
 	private VacinaRepository vacina;
 
-	public AtendimentoService() throws ClassNotFoundException {
+	public AtendimentoService() throws ClassNotFoundException, SQLException {
 		super();
 		this.atendimento = new AtendimentoDao();
 		this.paciente = new PacienteDao();
@@ -40,6 +41,15 @@ public class AtendimentoService {
 		atendime.setVacina(vacinaEncontrada);
 		atendime.setDt_atendimento(new java.util.Date());
 		this.atendimento.save(atendime);
+		
+	}
+	
+	public boolean delete(Integer id) {
+		boolean ok = atendimento.delete(id);
+		if(!ok) {
+			throw new DbException("Atendimento não pode ser deletado! ");	
+		}
+		return ok;
 		
 	}
 	
@@ -74,15 +84,20 @@ public class AtendimentoService {
 	}
 	
 	
-	public static void main(String[]args) throws ClassNotFoundException {
+	public static void main(String[]args) throws ClassNotFoundException, SQLException {
 		AtendimentoService atendimentoService = new AtendimentoService();
 		Atendimento atendime = new Atendimento();
 		
-		atendime.setPaciente(new Paciente(1));
+		/*atendime.setPaciente(new Paciente(1));
 		atendime.setVacina(new Vacina(2));
-		atendime.setDt_atendimento(new java.util.Date());
+		atendime.setDt_atendimento(new java.util.Date());*/
 		
 		//atendimentoService.save(atendime);
+		
+		//System.out.println(atendimentoService.findAll());
+		
+		//System.out.println(atendimentoService.delete(3));
+		
 		
 	}
 	

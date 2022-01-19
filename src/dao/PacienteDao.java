@@ -22,7 +22,7 @@ public class PacienteDao implements PacienteRepository {
 	private PreparedStatement stmt = null;
 	private ResultSet rs = null;;
 
-	public PacienteDao() throws ClassNotFoundException {
+	public PacienteDao() throws ClassNotFoundException, SQLException {
 		this.conn = Conexao.db();
 	}
 
@@ -95,9 +95,9 @@ public class PacienteDao implements PacienteRepository {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			throw new DbException(e.getMessage());
-		} finally {
-			this.close(this.conn, this.stmt);
-		}
+		} //finally {
+			//this.close(this.conn, this.stmt);
+		//}
 	}
 
 	@Override
@@ -173,7 +173,7 @@ public class PacienteDao implements PacienteRepository {
 		}
 	}
 
-	public static void main(String[] args) throws ClassNotFoundException {
+	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		PacienteDao pacienteDao = new PacienteDao();
 
 		/*
