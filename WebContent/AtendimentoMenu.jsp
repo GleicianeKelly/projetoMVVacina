@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    
-    
-    
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -16,13 +13,13 @@
 <body>
     <div class="controle">
         <div class="botao">
-            <a href= "PacienteMenu.jsp"><button>Paciente</button></a>
+            <a href= "Atendimento.jsp"><button>Cadastrar Atendimento</button></a>
         </div> 
         <div class="botao">
-            <a href= "VacinaMenu.jsp"><button>Vacina</button></a>
+            <a href="EditarAtendimento.jsp"><button>Editar Atendimento</button></a>
         </div> 
         <div class="botao">
-            <a href ="AtendimentoMenu.jsp"><button>Atendimento</button></a>
+            <a href = "listarAtendimento.jsp"><button>Listar Atendimento</button></a>
         </div> 
         
         

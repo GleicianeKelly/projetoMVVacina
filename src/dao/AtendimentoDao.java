@@ -112,6 +112,7 @@ public class AtendimentoDao implements AtendimentoRepository{
 
 	@Override
 	public void save(Atendimento object) {
+		
 		String url = "insert into atendimento (id_paciente, id_vacina, dt_atendime)"
 				+ "values(?,?,?)";
 		try{

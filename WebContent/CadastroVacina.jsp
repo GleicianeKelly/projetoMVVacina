@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
-    
+<script type="text/javascript">
+	function voltar(){
+		location.href = "MenuCadastro.jsp";
+	}
+</script>     
     
     
 <!DOCTYPE html>
@@ -15,7 +19,7 @@
     <title>Cadastro de Vacina</title>
 </head>
 <body>
-    <form method="POST">
+    <form action="CadastroVacinaServlet" method="POST">
 		<div id="cadastro">
 			<fieldset>
 				<legend>Cadastro de Vacinas</legend>

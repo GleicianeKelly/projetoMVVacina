@@ -60,12 +60,15 @@ public class PacienteService {
 	}
 	
 	
-	public static void main (String[]args) {
+	public static void main (String[]args) throws ClassNotFoundException {
 		Paciente paciente = new Paciente();
+		PacienteService pacienteService = new PacienteService();
 		
 		paciente.setCpf("55939260420");
 		paciente.setNome_paciente("Marcos");
 		paciente.setEndereco("Rua Lauro de Freitas");
+		
+		System.out.println(pacienteService.findByCpf("55939260420"));
 		
 		//PacienteService pacienteService = new PacienteService();
 		

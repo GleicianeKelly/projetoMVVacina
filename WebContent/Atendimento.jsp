@@ -14,30 +14,22 @@
     <title>Atendimento</title>
 </head>
 <body>
-    <form method="POST">
+    <form action="CadastroAtendimentoServlet" method="POST">
 		<div id="cadastro">
 			<fieldset>
 				<legend>Atendimento</legend>
 				<table>
-					<tr>
-						<td><label for="atendimento">Atendimento: </label></td>
-						<td><input type="text" name="atendimento" id="atendimento"
-							required="true" style="text-transform: uppercase;" /></td>
-					<tr>
-                        <td><label for="idPaciente">Id do paciente: </label></td>
-						<td><input type="text" name="idPaciente" id="idPaciente"
+					
+                        <td><label for="idPaciente">CPF do paciente: </label></td>
+						<td><input type="text" name="CPFPaciente" id="idPaciente"
 							required="true" style="text-transform: uppercase;" /></td>
 					</tr>
                     <tr>
-						<td><label for="idVacina">Id da vacina: </label></td>
-						<td><input type="text" name="idVacina" id="idVacina"true"
+						<td><label for="idVacina">Nome da vacina: </label></td>
+						<td><input type="text" name="NomeVacina" id="idVacina"true"
 							 style="text-transform: uppercase;" /></td>
 					</tr>
-                    <tr>
-						<td><label for="data">Data: </label></td>
-						<td><input type="text" name="data" id="data" required="true"
-							 style="text-transform: uppercase;" /></td>
-					</tr>
+                    
 				</table>
 				<hr>
 				<input type="submit" value="Salvar" name="salvar"> <input
