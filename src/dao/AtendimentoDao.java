@@ -22,19 +22,20 @@ import utils.Conexao;
 
 public class AtendimentoDao implements AtendimentoRepository{
 	
+	//O Dao faz toda conexão com o banco
 	
 	private Connection conn = null;
 	private PreparedStatement stmt = null;
 	private ResultSet rs = null;;
 	
 
-	
+	//Construtor que faz conn ficar aberta
 	public AtendimentoDao() throws ClassNotFoundException, SQLException {
 		this.conn = Conexao.db();
 	}
 	
 	
-	
+	//
 	@Override
 	public List<Atendimento> findAll() throws ClassNotFoundException {
 		List<Atendimento> atendimentoList = new ArrayList<>();

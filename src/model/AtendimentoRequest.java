@@ -6,7 +6,7 @@ public class AtendimentoRequest {
 
 	
 	
-	
+	//Foi utilizado pra pegar as informações do request
 	private String cpf_paciente;
 	private String nm_vacina;
 	private Date dt_atendime;

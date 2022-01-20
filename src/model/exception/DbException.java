@@ -2,7 +2,7 @@ package model.exception;
 
 public class DbException extends RuntimeException{
 
-	
+	//Classe DbException extendeu o RunTime pra manipular as excessões
 	public DbException() {
 		super();
 		// TODO Auto-generated constructor stub

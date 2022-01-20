@@ -33,7 +33,7 @@
 	<form method="POST">
 		<div id="cadastro">
 			<fieldset>
-				<legend>Vacinas Cadastrados</legend>
+				<legend>Vacinas Cadastradas</legend>
 				<table border="1">
 					<tr>
 						<td>Cod. Vacina</td>
@@ -47,7 +47,7 @@
 							<td><c:out value="${vacina.nome_vacina}" /></td>
 							<td><c:out value="${vacina.marca}" /></td>
 								
-							<td><a href="EditarVacina.jsp?codigo=${vacina.id_vacina}&&nome_musica=${vacina.nome_musica}&&cantor=${musica.cantor}">Editar</a></td>
+							<td><a href="EditarVacina.jsp?codigo=${vacina.id_vacina}&&nome_vacina=${vacina.nome_vacina}&&marca=${vacina.marca}">Editar</a></td>
 							</td>
 						</tr>
 					</c:forEach>

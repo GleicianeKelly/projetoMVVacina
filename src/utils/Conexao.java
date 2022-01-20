@@ -18,9 +18,10 @@ public class Conexao {
 	private final static String usuario = "uldpnmraulscaa";
 	private final static String senha = "3ccce9ce53bbc9a86bbd3ab2465b8686538b3f387fb45de1f7a17111878a06d3";
 		
+		//Estático para ser chamada em outras classes sem ser instanciada
 		private static Connection conn;
 
-	
+		//Método abre conexão
 		public static Connection db() throws ClassNotFoundException, SQLException {
 			conn = null;
 			if (conn == null || conn.isClosed()) {
@@ -36,7 +37,7 @@ public class Conexao {
 			return conn;
 		}
 
-		
+		//Método que fecha a conexão
 		public static void closeConection(Connection c) {
 	       
 			try {
@@ -52,7 +53,7 @@ public class Conexao {
 		}
 
 
-		
+		//Método que fecha o statement
 		public static void closePreparedStatement(PreparedStatement stmt) {
 			try {
 				 if(stmt == null) {
@@ -67,7 +68,7 @@ public class Conexao {
 			}
 		}
 	
-		
+		//teste
 		public static void main(String...args) throws ClassNotFoundException, SQLException {
 			System.out.println(Conexao.db());
 		}

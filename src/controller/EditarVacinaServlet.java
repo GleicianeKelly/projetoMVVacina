@@ -1,9 +1,5 @@
 package controller;
 
-
-import model.Paciente;
-import service.PacienteService;
-
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -13,17 +9,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
+import model.Vacina;
+import service.VacinaService;
+
 /**
- * Servlet implementation class EditarPaciente
+ * Servlet implementation class EditarVacinaServlet
  */
-@WebServlet("/EditarPaciente")
-public class EditarPacienteServlet extends HttpServlet {
+@WebServlet("/EditarVacinaServlet")
+public class EditarVacinaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EditarPacienteServlet() {
+    public EditarVacinaServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -43,19 +43,18 @@ public class EditarPacienteServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		
-		Paciente paciente = new Paciente();
+		Vacina vacina = new Vacina();
 		
-		PacienteService pacienteBean = null;
+		VacinaService vacinaBean = null;
 		try {
-			pacienteBean = new PacienteService();
+			vacinaBean = new VacinaService();
 			
+			vacina.setId_vacina(Integer.parseInt(request.getParameter("id_codigo")));
+			vacina.setNome_vacina(request.getParameter("nome_vacina"));
+			vacina.setMarca(request.getParameter("marca"));
 			
-			paciente.setId_paciente(Integer.parseInt(request.getParameter("id_codigo")));
-			paciente.setCpf(request.getParameter("cpf"));
-			paciente.setNome_paciente(request.getParameter("nome_paciente"));
-			paciente.setEndereco(request.getParameter("endereco"));
-			pacienteBean.update(paciente);
-			response.sendRedirect("listarPaciente.jsp");
+			vacinaBean.update(vacina);
+			response.sendRedirect("listarVacina.jsp");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -63,6 +62,7 @@ public class EditarPacienteServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 	}
 
 }
