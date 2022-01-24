@@ -12,6 +12,11 @@ public class MapperAtendimento {
 
 	
 	
+	/*
+	 * Para paciente e vacina, chama o método que busca o id, passa
+	 * o id da query pra dentro do método que retorna o objeto pra
+	 * dentro do atributo
+	 */
 	
 	public static Atendimento createAtendimento(ResultSet rs) throws ClassNotFoundException, SQLException {
 		Atendimento atendime = new Atendimento();
@@ -30,11 +35,6 @@ public class MapperAtendimento {
 
 	}
 	
-	/*
-	 * Para paciente e vacina, chama o método que busca o id, passa
-	 * o id da query pra dentro do método que retorna o objeto pra
-	 * dentro do atributo
-	 */
 	
 	
 	

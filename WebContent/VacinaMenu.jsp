@@ -20,6 +20,10 @@
             <a href=listarVacina.jsp><button>Listar Vacinas</button></a>
         </div> 
         
+         <div class="botao">
+            <a href=BuscarVacina.jsp><button>Buscar Vacina</button></a>
+        </div> 
+        
         
     </div>
 </body>

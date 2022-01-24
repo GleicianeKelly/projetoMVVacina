@@ -26,6 +26,7 @@ public class PacienteDao implements PacienteRepository {
 		this.conn = Conexao.db();
 	}
 
+	
 	@Override
 	public List<Paciente> findAll() {
 		List<Paciente> pacienteList = new ArrayList<>();
@@ -88,7 +89,7 @@ public class PacienteDao implements PacienteRepository {
 			this.stmt.setInt(4, object.getId_paciente());
 			int value = this.stmt.executeUpdate();
 			if (value == 0) {
-				throw new SQLException("erro ao salvar paciente");
+				throw new SQLException("erro ao editar paciente");
 			}
 			System.out.println("Atualizado com sucesso! ");
 

@@ -1,30 +1,30 @@
 package controller;
 
+
 import java.io.IOException;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.AtendimentoRequest;
-import service.AtendimentoService;
+import model.Vacina;
+import service.VacinaService;
 
 /**
- * Servlet implementation class CadastroAtendimentoServlet
+ * Servlet implementation class BuscarVacinaServlet
  */
-@WebServlet("/CadastroAtendimentoServlet")
-public class CadastroAtendimentoServlet extends HttpServlet {
+@WebServlet("/BuscarVacinaServlet")
+public class BuscarVacinaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CadastroAtendimentoServlet() {
+    public BuscarVacinaServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -42,32 +42,21 @@ public class CadastroAtendimentoServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+	
 		
+		String nome = request.getParameter("nomeVacina");
 		
-		
-		SimpleDateFormat format = new SimpleDateFormat();
-		
-		AtendimentoRequest atendimentoRequest = new AtendimentoRequest();
-		
-		AtendimentoService atendimentoBean = null;
 		try {
-			atendimentoBean = new AtendimentoService();
-			atendimentoRequest.setCpf_paciente(request.getParameter("CPFPaciente"));
-			atendimentoRequest.setNm_vacina(request.getParameter("NomeVacina"));	
+			VacinaService vacinaService = new VacinaService();
+			Vacina vacina = vacinaService.findByName(nome);
+			request.setAttribute("vacinaEncontrada", vacina);
+			RequestDispatcher requestDispatcher = request.getRequestDispatcher("../listarNomeVacina.jsp");
+			requestDispatcher.forward(request, response);
 			
-			atendimentoBean.save(atendimentoRequest);
-			response.sendRedirect("listarAtendimento.jsp");
-		} catch (ClassNotFoundException e) {
+		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
-	}
-		
-		
+		}
 		
 		
 		
@@ -75,4 +64,4 @@ public class CadastroAtendimentoServlet extends HttpServlet {
 		
 	}
 
-
+}

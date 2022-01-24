@@ -18,7 +18,7 @@
     <title>Mv Vacina</title>
 </head>
 <body>
-<header><img src="img/Marca_MV_oficial-removebg-preview.png" alt="logo"></header>
+<!--<header><img src="img/Marca_MV_oficial-removebg-preview.png" alt="logo"></header>  -->
 
     <div class="container"> 
         <h2>Login</h2>

@@ -31,12 +31,24 @@ public class AtendimentoService {
 		this.vacina = new VacinaDao();
 	}
 	
+	/*
+	 * Método que recebe o AtendimentoRequest que pega só os dados
+	 * que preciso para cadastrar meu atendimento
+	 */
 	public void save(AtendimentoRequest object) {
-		
-		
+		/*
+		 * this.paciente recebe o pacienteDao no construtor e chama 
+		 * o método de encontrar paciente por cpf, passa o valor do cpf
+		 * que recebeu lá no input do servlet e retorna um paciente com
+		 * todas as informações pois é um objeto. Da mesma forma com vacina.
+		 */
 		Paciente pacienteEncontrado = this.paciente.findByCpf(object.getCpf_paciente()).get();
 		Vacina vacinaEncontrada = this.vacina.findByName(object.getNm_vacina()).get();
 		Atendimento atendime = new Atendimento();
+		/*
+		 * Passa esses objetos encontrados para o atendimento para chamar o 
+		 * Dao e salvar no banco
+		 */
 		atendime.setPaciente(pacienteEncontrado);
 		atendime.setVacina(vacinaEncontrada);
 		atendime.setDt_atendimento(new java.util.Date());

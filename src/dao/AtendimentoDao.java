@@ -35,7 +35,7 @@ public class AtendimentoDao implements AtendimentoRepository{
 	}
 	
 	
-	//
+	//Método para encontrar todos os registros do banco
 	@Override
 	public List<Atendimento> findAll() throws ClassNotFoundException {
 		List<Atendimento> atendimentoList = new ArrayList<>();
@@ -44,7 +44,13 @@ public class AtendimentoDao implements AtendimentoRepository{
 			this.stmt = this.conn.prepareStatement(url);
 			this.rs = this.stmt.executeQuery();
 			while (this.rs.next()) {
-				
+				/*
+				 * Vou colocar dentro do mapper o resultado da query
+				 * e vou pegar lá no mapper as informações registradas
+				 * no banco que vão me retonar um objeto que será inserido
+				 * na lista para ser retornada para meu servlet e  
+				 * consequentemente para o servidor.
+				 */
 				Atendimento atendimento = MapperAtendimento.createAtendimento(rs);
 				atendimentoList.add(atendimento);
 				
@@ -62,6 +68,11 @@ public class AtendimentoDao implements AtendimentoRepository{
 		
 	}
 
+	
+	/*
+	 * Método utilizado no mapper pra pegar todos os pacientes por id
+	 * e retornar para o findAll
+	 */
 	@Override
 	public Optional<Atendimento> findById(Integer id) throws ClassNotFoundException {
 		Optional<Atendimento> atendimentoEncontrado = null;
@@ -83,7 +94,7 @@ public class AtendimentoDao implements AtendimentoRepository{
 		return null;
 	}
 	
-	
+	//Método que altera o atendimento
 	@Override
 	public void update(Atendimento object) {
 		String url = "update atendimento set id_paciente = ?, id_vacina = ?,"
@@ -110,7 +121,7 @@ public class AtendimentoDao implements AtendimentoRepository{
 		}
 		
 	
-
+	//Método para salvar no banco
 	@Override
 	public void save(Atendimento object) {
 		
@@ -139,7 +150,7 @@ public class AtendimentoDao implements AtendimentoRepository{
 		
 		
 	
-
+	//Método pra deletar
 	@Override
 	public boolean delete(Integer id) {
 		String url = "delete from atendimento where id_atendime = ?";
@@ -151,7 +162,7 @@ public class AtendimentoDao implements AtendimentoRepository{
 				throw new SQLException("erro ao deletar atendimento");				
 			}
 			
-			System.out.println("Atualizado com sucesso! ");
+			System.out.println("Deletado com sucesso! ");
 			return ok;
 
 		} catch (SQLException e) {
@@ -200,6 +211,8 @@ public class AtendimentoDao implements AtendimentoRepository{
 		}
 	}
 	
+	
+	//testes
 	public static void main(String[] args) throws ParseException, ClassNotFoundException, SQLException {
 		AtendimentoDao atendimentoDao = new AtendimentoDao();
 		Atendimento atendimento = new Atendimento();
