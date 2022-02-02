@@ -1,6 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
+<%
+
+	if(session.getAttribute("usuario") == null){
+		response.sendRedirect("index.jsp");
+	}
+	
+%>
+
     
     
 <!DOCTYPE html>
@@ -24,7 +32,9 @@
         <div class="botao">
             <a href ="AtendimentoMenu.jsp"><button>Atendimento</button></a>
         </div> 
-        
+        <div class="botao">
+            <a href ="deslogar.jsp"><button>Sair</button></a>
+        </div> 
         
     </div>
 </body>

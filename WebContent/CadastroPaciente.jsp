@@ -2,6 +2,13 @@
     pageEncoding="ISO-8859-1"%>
     
     
+<%
+
+	if(session.getAttribute("usuario") == null){
+		response.sendRedirect("index.jsp");
+	}
+	
+%>
     
     
     

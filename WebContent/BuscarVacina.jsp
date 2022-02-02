@@ -1,5 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+    
+<%
+
+	if(session.getAttribute("usuario") == null){
+		response.sendRedirect("index.jsp");
+	}
+	
+%>
+    
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,8 +28,7 @@
                         <td><label for="marcaVacina">Nome da vacina: </label></td>
 						<td><input type="text" name="nomeVacina" id="marca"
 							required="true" style="text-transform: uppercase;" /></td>
-					</tr>
-                   
+					</tr>                  
 				</table>
 				<hr>
 				<input type="submit" value="Enviar" name="salvar"> <input

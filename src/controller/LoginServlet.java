@@ -4,10 +4,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.Login;
 
@@ -50,8 +52,13 @@ public class LoginServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		String mensagem;
 		
+		
+		
 		if(login.logar(nome, senha)) {
+			HttpSession session = request.getSession();
+			session.setAttribute("usuario", nome);
 			response.sendRedirect("MenuCadastro.jsp");
+			
 		}
 		else {
 			response.sendRedirect("index.jsp");

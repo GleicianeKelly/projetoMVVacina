@@ -5,6 +5,15 @@
 	scope="session" />
 
 
+<%
+
+	if(session.getAttribute("usuario") == null){
+		response.sendRedirect("index.jsp");
+	}
+	
+%>
+
+
 
 <%
 String acaoSalvar = request.getParameter("salvar");

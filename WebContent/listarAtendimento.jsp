@@ -6,6 +6,15 @@
 	scope="session" />
 
 
+<%
+
+	if(session.getAttribute("usuario") == null){
+		response.sendRedirect("index.jsp");
+	}
+	
+%>
+
+
 
 <script type="text/javascript">
 	function nova() {

@@ -4,6 +4,13 @@
 <jsp:useBean id="pacienteService" class="service.PacienteService"
 	scope="session" />
 
+<%
+
+	if(session.getAttribute("usuario") == null){
+		response.sendRedirect("index.jsp");
+	}
+	
+%>
 
 
 <%
