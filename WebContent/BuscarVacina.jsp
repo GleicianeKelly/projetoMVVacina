@@ -37,6 +37,35 @@
 			</fieldset>
 		</div>
 	</form>
+	
+	
+		<div id="cadastro">
+			<fieldset>
+				<legend>Vacinas encontrada</legend>
+				<table border="1">
+					<tr>
+						<td>Cod. Vacina</td>
+						<td>Nome Vacina</td>
+						<td>Marca Vacina</td>
+						
+					</tr>
+					
+					 
+						<tr>
+							<td>${vacina.id_vacina}</td>
+							<td>${vacina.nome_vacina}</td>
+							<td>${vacina.marca}</td>
+
+						</tr>
+			
+
+				</table>
+			</fieldset>
+		</div>
+		<hr />
+		
+	
+	
 
 </body>
 </html>

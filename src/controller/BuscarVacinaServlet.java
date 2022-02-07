@@ -4,6 +4,7 @@ package controller;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -46,24 +47,26 @@ public class BuscarVacinaServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	
+		Vacina vacina = new Vacina();
 		String nome = request.getParameter("nomeVacina");
 		
-		System.out.println(nome);
-	
+		VacinaService vs;
 		try {
-		VacinaService vacinaService = new VacinaService();
-		Vacina vacina = vacinaService.findByName(nome);
-		request.setAttribute("vacinaEncontrada", vacina);
-		System.out.println(request.getContextPath());
-		request.getRequestDispatcher(request.getContextPath() + "/../pages/listarNomeVacina.jsp").forward(request, response);
+			vs = new VacinaService();
+			vacina = vs.findByName(nome);
+			request.setAttribute("vacina", vacina);
+			RequestDispatcher d = request.getRequestDispatcher("BuscarVacina.jsp");
+			d.forward(request, response);
+			//formard leva tudo que trouxe
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		response.sendRedirect("listarNomeVacina.jsp");
-		System.out.println(vacina);
-	} catch (ClassNotFoundException | SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-		
+
 		
 		
 	}
