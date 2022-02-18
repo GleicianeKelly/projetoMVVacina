@@ -32,6 +32,9 @@
         <div class="botao">
             <a href ="AtendimentoMenu.jsp"><button>Atendimento</button></a>
         </div> 
+         <div class="botao">
+            <a href ="Cadastro.jsp"><button>Cadastro Admin</button></a>
+        </div> 
         <div class="botao">
             <a href ="deslogar.jsp"><button>Sair</button></a>
         </div> 

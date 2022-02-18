@@ -9,20 +9,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Vacina;
-import service.VacinaService;
+import model.CadastroAdmin;
+import service.CadastroAdminService;
+
 
 /**
- * Servlet implementation class CadastroVacinaServlet
+ * Servlet implementation class CadastroAdminServlet
  */
-@WebServlet("/CadastroVacinaServlet")
-public class CadastroVacinaServlet extends HttpServlet {
+@WebServlet("/CadastroAdminServlet")
+public class CadastroAdminServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CadastroVacinaServlet() {
+    public CadastroAdminServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -42,15 +43,17 @@ public class CadastroVacinaServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		
-		Vacina vacina = new Vacina();
+
 		
-		VacinaService vacinaBean = null;
+		CadastroAdmin cadastro = new CadastroAdmin();
+		CadastroAdminService cadastroBean = null;
 		try {
-			vacinaBean = new VacinaService();
-			vacina.setNome_vacina(request.getParameter("nomeVacina"));
-			vacina.setMarca(request.getParameter("marcaVacina"));		
-			vacinaBean.save(vacina);
-			response.sendRedirect("listarVacina.jsp");
+			cadastroBean = new CadastroAdminService();
+			cadastro.setNome(request.getParameter("nomeAdmin"));
+			cadastro.setSenha(request.getParameter("senha"));
+			
+			cadastroBean.salvar(cadastro);
+			response.sendRedirect("listarPaciente.jsp");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -58,6 +61,9 @@ public class CadastroVacinaServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
+		
 	}
 
 }

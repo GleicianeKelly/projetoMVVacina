@@ -1,7 +1,6 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,7 +9,6 @@ import java.util.List;
 import java.util.Optional;
 
 import mapper.MapperPaciente;
-import model.Atendimento;
 import model.Paciente;
 import model.exception.DbException;
 import repository.PacienteRepository;
@@ -186,14 +184,16 @@ public class PacienteDao implements PacienteRepository {
 
 		/* System.out.println(paciente.findByCpf("08745090416")); */
 
-		Paciente paciente = new Paciente();
+		//Paciente paciente = new Paciente();
 
-		paciente.setCpf("08745090416");
-		paciente.setNome_paciente("Mariah Carey");
-		paciente.setEndereco("Rua vila pedrosa");
+		//paciente.setCpf("08745090416");
+		//paciente.setNome_paciente("Mariah Carey");
+		//paciente.setEndereco("Rua vila pedrosa");
 		// paciente.setId_paciente(2);
 
-		pacienteDao.save(paciente);
+		//pacienteDao.save(paciente);
+		
+		System.out.println(pacienteDao.findByCpf("86565936099")); 
 
 	}
 
