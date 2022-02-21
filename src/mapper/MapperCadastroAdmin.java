@@ -14,6 +14,7 @@ public class MapperCadastroAdmin {
 		CadastroAdmin cadastroAdministrador = new CadastroAdmin();
 		try {
 			if(rs != null) {
+				cadastroAdministrador.setCd_usuario(rs.getInt("cd_usuario"));
 				cadastroAdministrador.setNome(rs.getString("nome_usuario"));
 				cadastroAdministrador.setSenha(rs.getString("senha"));
 				return cadastroAdministrador;
